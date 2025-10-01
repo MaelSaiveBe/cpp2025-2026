@@ -1,25 +1,29 @@
-enum Engine { Petrol, Diesel, Electric, Hybrid }; 
-
+#include <cstdlib>
+enum Engine { Petrol,  Diesel, Electric, Hybrid };
 
 class Model {
-  
-private:
 
+private:
   int power;
-  char* name;
+  char *name;
   float basePrice;
   Engine engine;
 
 public:
-  Model(int, char*, float, Engine);
+  Model(const char *, int, Engine, float);
   Model();
-  Model(Model&);
+  Model(Model &);
   ~Model();
 
-  void setName(char*);
+  void setName(const char *);
+  void setEngine(Engine);
+  void setBasePrice(float);
+  void setPower(int);
 
-  char* getName();
-  
+  const char *getName();
+  const int getPower();
+  const float getBasePrice();
+  const Engine getEngine();
+
   void display();
-  
 };

@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-#include "Model.h"
+ #include "Model.h"
 
 // Quelques conseils avant de commencer...
 // * N'oubliez pas de tracer (cout << ...) tous les constructeurs et le destructeur !!! Ca, c'est pas un conseil,
@@ -66,7 +66,7 @@ int main()
     p->setEngine(Engine::Diesel);
     p->setBasePrice(31650.0f);
     p->display();
-    cout << "Le prix de base de ce model est : " << p->getBasePrice() << " euros" << endl;
+  cout << "Le prix de base de ce model est : " << p->getBasePrice() << " euros" << endl;
     delete p;
   }
 

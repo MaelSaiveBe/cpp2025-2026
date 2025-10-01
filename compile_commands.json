@@ -2,6 +2,22 @@
   {
     "arguments": [
       "/usr/bin/g++",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-w",
+      "-c",
+      "-o",
+      "Model.o",
+      "./Classe/Model.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Classe/Model.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Model.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
       "-c",
       "-I./Include/",
       "-Wall",
