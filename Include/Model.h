@@ -1,4 +1,8 @@
+#ifndef MODEL_H
+#define MODEL_H
+
 #include <cstdlib>
+namespace carconfig {
 enum Engine { Petrol,  Diesel, Electric, Hybrid };
 
 class Model {
@@ -12,7 +16,7 @@ private:
 public:
   Model(const char *, int, Engine, float);
   Model();
-  Model(Model &);
+  Model(const Model &);
   ~Model();
 
   void setName(const char *);
@@ -20,10 +24,12 @@ public:
   void setBasePrice(float);
   void setPower(int);
 
-  const char *getName();
-  const int getPower();
-  const float getBasePrice();
-  const Engine getEngine();
+char *getName()const ;
+int getPower()const ;
+float getBasePrice()const ;
+Engine getEngine()const ;
 
-  void display();
+  void display()const;
 };
+}
+#endif

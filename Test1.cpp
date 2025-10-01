@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
- #include "Model.h"
+#include "Model.h"
 
 // Quelques conseils avant de commencer...
 // * N'oubliez pas de tracer (cout << ...) tous les constructeurs et le destructeur !!! Ca, c'est pas un conseil,
@@ -13,7 +13,7 @@ using namespace std;
 // * Une fois que tout le programme compile et fonctionne correctement, creez le .h contenant la declaration
 //   de la classe, le .cpp contenant la definition des methodes, et ensuite le makefile permettant de compiler
 //   le tout grace a la commande make 
-
+using namespace carconfig;
 int main()
 {
   cout << endl << "(1) ***** Test constructeur par defaut + display ************************" << endl;
@@ -86,3 +86,4 @@ int main()
 
   return 0;
 }
+

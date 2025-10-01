@@ -1,4 +1,5 @@
 #include <iostream>
+#include <ostream>
 #include "Model.h"
 #include "Car.h"
 

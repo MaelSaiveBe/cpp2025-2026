@@ -4,15 +4,16 @@
 #include <iostream>
 #include <iterator>
 #include <ostream>
-
+namespace carconfig {
 Model::Model() {
   std::cout << "Constructeur par défaut Model()" << std::endl;
   name = nullptr;
-  std::cout << "iwas here" << std::endl;
+  power= 0;
+  basePrice= 0.0;
   setName("Default name");
 }
 
-Model::Model(const char *name, int power, Engine moteur, float basePrice) {
+Model::Model(const char* name, int power, Engine moteur, float basePrice) {
   this->power = power;
   this->basePrice = basePrice;
   this->engine = moteur;
@@ -21,7 +22,7 @@ Model::Model(const char *name, int power, Engine moteur, float basePrice) {
   setName(name);
 }
 
-Model::Model(Model &obj) {
+Model::Model(const Model &obj) {
   this->power = obj.power;
 
   this->basePrice = obj.basePrice;
@@ -44,7 +45,7 @@ Model::~Model() {
 void Model::setName(const char *name) {
   if (!name)
     return;
-  if (name)
+  if (this->name)
     delete[] this->name;
   this->name = new char[strlen(name) + 1];
   strcpy(this->name, name);
@@ -58,27 +59,28 @@ void Model::setBasePrice(float bp) { this->basePrice = bp; }
 //------------------GETTER-------------------------
 //
 
-const char *Model::getName() { return name; }
+char* Model::getName() const { return  name; }
 
-const int Model::getPower() { return power; }
+int Model::getPower() const { return power; }
 
-const float Model::getBasePrice() { return basePrice; }
+float Model::getBasePrice() const { return basePrice; }
 
-const Engine Model::getEngine() { return engine; }
+Engine Model::getEngine() const { return engine; }
 
 //----------------UTILS------------------------------
 //
 
-void Model::display() {
+void Model::display() const{
   std::cout<< "-------------------------------------------------"<<std::endl;
   std::cout<< "-------------------------------------------------"<<std::endl;
   std::cout << "Model.display(): " << std::endl;
-  std::cout << "  nom du model: " << getName() << std::endl;
+  std::cout << "  nom du model: " << this->getName() << std::endl;
 
   std::cout << "  puissance: " << getPower() << std::endl;
-  std::cout << "  nom du moteur: "<< getEngine() << std::endl;
+  std::cout << "  type du moteur: " << getEngine() << std::endl;
   std::cout << "  Prix de Base: "<<getBasePrice()<< std::endl;
   std::cout<< "-------------------------------------------------"<<std::endl;
   std::cout<< "-------------------------------------------------"<<std::endl;
+}
 }
 

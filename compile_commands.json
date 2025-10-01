@@ -24,12 +24,13 @@
       "-DDEBUG",
       "-w",
       "Model.o",
+      "Car.o",
       "-o",
-      "Test1",
-      "Test1.cpp"
+      "Test2a",
+      "Test2a.cpp"
     ],
     "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce",
-    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Test1.cpp",
-    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Test1"
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Test2a.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Test2a"
   }
 ]
