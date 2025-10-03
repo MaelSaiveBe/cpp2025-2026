@@ -3,9 +3,13 @@
 #include <ostream>
 namespace carconfig {
 
-Car::Car() {
-    name = "Projet Inconnu";
-    model = Model();   
+
+Car::Car() 
+  : name("Projet Inconnu"),
+    model() // pas "model = Model();"
+{
+
+
 }
 
 // Constructeur paramétré

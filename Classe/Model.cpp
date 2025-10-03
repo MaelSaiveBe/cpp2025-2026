@@ -2,9 +2,12 @@
 #include <cstdlib>
 #include <cstring>
 #include <iostream>
-#include <iterator>
 #include <ostream>
+
+
 namespace carconfig {
+
+
 Model::Model() {
   std::cout << "Constructeur par défaut Model()" << std::endl;
   name = nullptr;
@@ -36,19 +39,19 @@ Model::Model(const Model &obj) {
 Model::~Model() {
 
   std::cout << "Destructeur Model" << std::endl;
-  if (name) {
-    delete[] name;
+  if (this->name) {
+    delete[] this->name;
   };
-}
+ }
 //--------------------SETTER ----------------------
 //
 void Model::setName(const char *name) {
-  if (!name)
-    return;
   if (this->name)
     delete[] this->name;
+  std::cout<<"setname ---------------------------------------------"<<std::endl;
   this->name = new char[strlen(name) + 1];
   strcpy(this->name, name);
+  std::cout<<this->name<<std::endl;
 }
 
 void Model::setPower(int p) { this->power = p; }
@@ -81,6 +84,15 @@ void Model::display() const{
   std::cout << "  Prix de Base: "<<getBasePrice()<< std::endl;
   std::cout<< "-------------------------------------------------"<<std::endl;
   std::cout<< "-------------------------------------------------"<<std::endl;
+}
+
+Model& Model::operator=(const Model& other) {
+    power = other.power;
+    basePrice = other.basePrice;
+    engine = other.engine;
+    setName(other.getName()); 
+    
+    return *this;
 }
 }
 

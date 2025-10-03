@@ -30,6 +30,9 @@ float getBasePrice()const ;
 Engine getEngine()const ;
 
   void display()const;
+
+  
+  Model& operator=(const Model& other);
 };
 }
 #endif
