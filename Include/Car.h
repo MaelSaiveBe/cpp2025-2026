@@ -3,11 +3,15 @@
 
 #include <string>
 #include "Model.h"
+#include "Option.h"
+
 namespace carconfig {
+
 class Car {
 private:
     std::string name;
     Model model;
+    Option* options[5]; 
 
 public:
     // --- Constructeurs ---
@@ -21,11 +25,15 @@ public:
     // --- Getters ---
     std::string getName() const;
    const Model& getModel() const;
+    const float getPrice() const;
 
     // --- Setters ---
     void setName(const std::string& newName);
     void setModel(const Model& newModel);
 
+    //----option management --------------
+    void addOption(const Option& option);
+    void removeOption(const std::string& target);
     //----Utils--------
     void display()const;
 };

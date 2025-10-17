@@ -46,6 +46,24 @@ void Car::setModel(const Model& newModel) {
     model = newModel;
 }
 
+void Car::addOption(const Option& option){
+  for(int i=0; i<5;i++){
+    if(options[i] == nullptr){
+      options[i] = new Option(option);
+      break;
+    }
+  }
+}
+
+void Car::removeOption(const std::string& target){
+  for(int i = 0; i<5; i++){
+    if(options[i]->getCode() == target){
+      free(options[i]);
+      options[i] == nullptr;
+    }
+  }
+}
+
 void Car::display()const{
   std::cout<< "Car.display(): "<< std::endl;
 
