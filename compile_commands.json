@@ -2,22 +2,6 @@
   {
     "arguments": [
       "/usr/bin/g++",
-      "-I./Include/",
-      "-Wall",
-      "-DDEBUG",
-      "-w",
-      "-c",
-      "-o",
-      "Car.o",
-      "./Classe/Car.cpp"
-    ],
-    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce",
-    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Classe/Car.cpp",
-    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Car.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/g++",
       "-c",
       "-I./Include/",
       "-Wall",
@@ -25,12 +9,13 @@
       "-w",
       "Model.o",
       "Car.o",
+      "Option.o",
       "-o",
-      "Test2a",
-      "Test2a.cpp"
+      "Test2B",
+      "Test2b.cpp"
     ],
-    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce",
-    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Test2a.cpp",
-    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/Test2a"
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2b.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2B"
   }
 ]
