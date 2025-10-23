@@ -2,6 +2,41 @@
   {
     "arguments": [
       "/usr/bin/g++",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-w",
+      "-c",
+      "-o",
+      "Car.o",
+      "./Classe/Car.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Classe/Car.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Car.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-w",
+      "Model.o",
+      "Car.o",
+      "Option.o",
+      "-o",
+      "Test2a",
+      "Test2a.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2a.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2a"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
       "-c",
       "-I./Include/",
       "-Wall",
@@ -17,5 +52,24 @@
     "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
     "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2b.cpp",
     "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2B"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-w",
+      "Model.o",
+      "Car.o",
+      "Option.o",
+      "-o",
+      "Test2c",
+      "Test2c.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2c.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test2c"
   }
 ]

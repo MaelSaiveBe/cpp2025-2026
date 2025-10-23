@@ -44,11 +44,11 @@ Model::~Model() {
   };
  }
 //--------------------SETTER ----------------------
+
 //
 void Model::setName(const char *name) {
   if (this->name)
     delete[] this->name;
-  std::cout<<"setname ---------------------------------------------"<<std::endl;
   this->name = new char[strlen(name) + 1];
   strcpy(this->name, name);
   std::cout<<this->name<<std::endl;

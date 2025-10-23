@@ -36,6 +36,8 @@ public:
     void removeOption(const std::string& target);
     //----Utils--------
     void display()const;
+
+    void optionToString()const;
 };
 }
 #endif
