@@ -31,7 +31,7 @@ int main(int argc,char* argv[])
       case 3 : Essai3(); break;
       case 4 : Essai4(); break;
       case 5 : Essai5(); break;
-      // case 6 : Essai6(); break;
+      case 6 : Essai6(); break;
       // case 7 : Essai7(); break;
       // case 8 : Essai8(); break;
       // case 9 : Essai9(); break;
@@ -187,21 +187,21 @@ void Essai5()
   std::cout << o << std::endl << std::endl;
 }
 
-// /*******************************************************************************************************/
-// /*** Test des opérateurs << et >> de la classe Model ***************************************************/
-// /*******************************************************************************************************/
-// void Essai6()
-// {
-//   std::cout << "**********************************************************************" << std::endl;
-//   std::cout << "(6) ***** Tests des opérateurs << et >> de Model *********************" << std::endl;
-//   std::cout << "**********************************************************************" << std::endl;
-//   Model m;
-//   std::cout << "Saisissez un nouveau modele :" << std::endl;
-//   std::cin >> m;
-//   std::cout << std::endl << "Voici le modele que vous avez encode :" << std::endl;
-//   std::cout << m << std::endl << std::endl;
-// }
-//
+/*******************************************************************************************************/
+/*** Test des opérateurs << et >> de la classe Model ***************************************************/
+/*******************************************************************************************************/
+void Essai6()
+{
+  std::cout << "**********************************************************************" << std::endl;
+  std::cout << "(6) ***** Tests des opérateurs << et >> de Model *********************" << std::endl;
+  std::cout << "**********************************************************************" << std::endl;
+  Model m;
+  std::cout << "Saisissez un nouveau modele :" << std::endl;
+  std::cin >> m;
+  std::cout << std::endl << "Voici le modele que vous avez encode :" << std::endl;
+  std::cout << m << std::endl << std::endl;
+}
+
 // /*******************************************************************************************************/
 // /*** Test de l'opérateur << de la classe Car ***********************************************************/
 // /*******************************************************************************************************/
