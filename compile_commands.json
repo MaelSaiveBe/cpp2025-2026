@@ -27,6 +27,25 @@
       "Car.o",
       "Option.o",
       "-o",
+      "Test3",
+      "Test3.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test3.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test3"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-c",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-w",
+      "Model.o",
+      "Car.o",
+      "Option.o",
+      "-o",
       "Test2a",
       "Test2a.cpp"
     ],

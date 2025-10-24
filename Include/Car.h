@@ -34,7 +34,18 @@ public:
     //----option management --------------
     void addOption(const Option& option);
     void removeOption(const std::string& target);
-    //----Utils--------
+  //----------Operator------------------------
+    Car& operator=(const Car& other);
+    Car operator+(const Option& op) const;
+    Car operator-(const Option& op) const;
+    Car operator-(const std::string& code) const;
+    friend Car operator+(const Option& op, const Car& car);
+    bool operator<(const Car&)const;
+    bool operator>(const Car&)const;
+    bool operator==(const Car&)const;
+
+
+  //----Utils--------
     void display()const;
 
     void optionToString()const;
