@@ -46,6 +46,17 @@ std::ostream &operator<<(std::ostream &os, const Option &op) {
   return os;
 }
 
+Option& Option::operator--(){
+  this->setPrice(this->getPrice()-50.0);
+  return *this;
+}
+
+Option Option::operator--(int){
+  Option temp(*this);
+  --(*this);
+  return temp;
+}
+
 std::istream &operator>>(std::istream &is, Option &op) {
   std::string codetemp, labelTemp;
   float priceTemp;

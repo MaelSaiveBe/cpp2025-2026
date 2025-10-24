@@ -2,6 +2,7 @@
 #include <iostream>
 #include <memory>
 #include <ostream>
+#include <string>
 #include <tuple>
 namespace carconfig {
 using std::string;
@@ -127,21 +128,38 @@ bool Car::operator==(const Car& other)const{
   return this->getPrice()==other.getPrice();
 }
 
-void Car::optionToString() const {
-  std::cout << "Options(";
+std::ostream& operator<<(std::ostream& os, const Car& car){
+  os<<"Car------------------------------------------"<<std::endl;
+  os<<"Nom: "<<car.getName()<<std::endl<<car.getModel()<<std::endl;
+  os<<car.optionToString();
+  os<<"------------------------------------------Car"<<std::endl;
+  return os;
+}
+
+
+Option* Car::operator[](int index){
+  return options[index];
+}
+
+
+string Car::optionToString() const {
+  string temp;
+  temp+= "Options(";
   for (int i = 0; i < 5; i++) {
     if (options[i] != nullptr) {
-      std::cout << "index " << i + 1;
-      std::cout << "code: ";
-      std::cout << options[i]->getCode();
-      std::cout << " label: ";
-      std::cout << options[i]->getLabel();
-      std::cout << " price: ";
-      std::cout << options[i]->getPrice();
-      std::cout << ";";
+      temp+="[";
+      temp+= std::to_string(i + 1);
+      temp +="] ";
+      temp+="code: ";
+    temp += options[i]->getCode();
+      temp+= " label: ";
+      temp+= options[i]->getLabel();
+      temp+= " price: ";
+      temp+= std::to_string(options[i]->getPrice());
+      temp+= ";\n";
     }
   }
-  std::cout << ")" << std::endl;
+  return temp+")";
 }
 
 void Car::display() const {
@@ -150,6 +168,6 @@ void Car::display() const {
   std::cout << " Name: " << this->getName() << std::endl;
   std::cout << " Model: " << std::endl;
   this->model.display();
-  this->optionToString();
+  std::cout<<this->optionToString();
 }
 } // namespace carconfig

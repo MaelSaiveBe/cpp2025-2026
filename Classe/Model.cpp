@@ -74,7 +74,7 @@ Engine Model::getEngine() const { return engine; }
 //
 
 void Model::display() const {
-  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "Model-------------------------------------------------" << std::endl;
   std::cout << "-------------------------------------------------" << std::endl;
   std::cout << "Model.display(): " << std::endl;
   std::cout << "  nom du model: " << this->getName() << std::endl;
@@ -83,7 +83,7 @@ void Model::display() const {
   std::cout << "  type du moteur: " << getEngine() << std::endl;
   std::cout << "  Prix de Base: " << getBasePrice() << std::endl;
   std::cout << "-------------------------------------------------" << std::endl;
-  std::cout << "-------------------------------------------------" << std::endl;
+  std::cout << "-------------------------------------------------Model" << std::endl;
 }
 
 Model &Model::operator=(const Model &other) {
@@ -98,10 +98,10 @@ Model &Model::operator=(const Model &other) {
 std::ostream &operator<<(std::ostream &os, const Model &m) {
   os << "Model----------------------" << std::endl
      << "Nom: " << m.getName() << std::endl
-     << " Puissance: " << m.getPower() << "type moteur: " << m.getEngine()
+     << "Puissance: " << m.getPower() << " Type moteur: " << m.getEngine()
      << std::endl
      << "Prix de Base: " << m.getBasePrice()<<std::endl;
-  os << "---------------------------";
+  os << "----------------------Model";
   return os;
 }
 std::istream &operator>>(std::istream &is, Model &m) {
@@ -121,7 +121,6 @@ std::istream &operator>>(std::istream &is, Model &m) {
   std::cout << "Prix de base : ";
   is >> basePrice;
 
-  // Applique les valeurs au modèle
   m.setName(name.c_str());
   m.setPower(power);
   m.setEngine(static_cast<Engine>(engineType));

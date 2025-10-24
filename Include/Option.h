@@ -35,6 +35,8 @@ public:
   //---Operator overload---
   friend std::ostream& operator<<(std::ostream& os, const Option& op); 
   friend std::istream& operator>>(std::istream& is, Option& op);
+  Option& operator--();
+  Option operator--(int);
 
   // ---Utils-- ---
   void display() const;
