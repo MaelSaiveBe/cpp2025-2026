@@ -1,32 +1,41 @@
 Classe = ./Classe/
 Include = ./Include/
 
+CO = g++ -I$(Include) -Wall -DDEBUG
 
-CO = g++ -I$(Include) -Wall -DDEBUG -w
-
-all: Test3 Test2a Test2b Test2c
-	
+all: Test1 Test2a Test2b Test2c Test3 Test4
 
 Test1: Test1.cpp Model.o
 	$(CO) Test1.cpp -o Test1 Model.o
 
-Test2a: Test2a.cpp Model.o Car.o
-	$(CO) Test2a.cpp -o Test2a Model.o Car.o Option.o
+Test2a: Test2a.cpp Model.o Car.o Option.o Person.o
+	$(CO) Test2a.cpp -o Test2a Model.o Car.o Option.o Person.o
 
-Test2b:	Test2b.cpp Model.o Car.o Option.o
-	$(CO) Test2b.cpp -o Test2B Model.o Car.o Option.o
+Test2b: Test2b.cpp Model.o Car.o Option.o Person.o
+	$(CO) Test2b.cpp -o Test2b Model.o Car.o Option.o Person.o
 
-Test2c: Test2c.cpp Model.o Car.o Option.o
-	$(CO) Test2c.cpp -o Test2c Model.o Car.o Option.o
+Test2c: Test2c.cpp Model.o Car.o Option.o Person.o
+	$(CO) Test2c.cpp -o Test2c Model.o Car.o Option.o Person.o
 
-Test3:	Test3.cpp Model.o Car.o Option.o
-	$(CO)  Test3.cpp -o Test3 Model.o Car.o Option.o
+Test3: Test3.cpp Model.o Car.o Option.o Person.o
+	$(CO) Test3.cpp -o Test3 Model.o Car.o Option.o Person.o
 
-Model.o:  $(Classe)Model.cpp
-	$(CO) -c $(Classe)Model.cpp -o  Model.o
+Test4: Test4.cpp Model.o Car.o Option.o Person.o
+	$(CO) Test4.cpp -o Test4 Model.o Car.o Option.o Person.o
 
-Car.o:	$(Classe)Car.cpp
+# === Compilation des objets ===
+Model.o: $(Classe)Model.cpp
+	$(CO) -c $(Classe)Model.cpp -o Model.o
+
+Car.o: $(Classe)Car.cpp
 	$(CO) -c $(Classe)Car.cpp -o Car.o
 
-Option.o:	$(Classe)Option.cpp
+Option.o: $(Classe)Option.cpp
 	$(CO) -c $(Classe)Option.cpp -o Option.o
+
+Person.o: $(Classe)Person.cpp
+	$(CO) -c $(Classe)Person.cpp -o Person.o
+
+# === Nettoyage des fichiers compilés ===
+clean:
+	rm -f *.o Test1 Test2a Test2b Test2c Test3 Test4
