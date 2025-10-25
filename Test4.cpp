@@ -2,16 +2,16 @@
 using namespace std;
 
 #include "Person.h"
-// #include "Client.h"
+#include "Client.h"
 // #include "Employee.h"
 
 int  Menu();
 void Essai1();
 void Essai2();
-void Essai3();
-void Essai4();
-void Essai5();
-void Essai6();
+// void Essai3();
+// void Essai4();
+// void Essai5();
+// void Essai6();
 
 int main()
 {
@@ -25,7 +25,7 @@ int main()
     switch(choix)
     {
       case 1 : Essai1(); break;
-      // case 2 : Essai2(); break;
+      case 2 : Essai2(); break;
       // case 3 : Essai3(); break;
       // case 4 : Essai4(); break;
       // case 5 : Essai5(); break;
@@ -96,60 +96,60 @@ void Essai1()
   p1 = p3;
   cout << "Voici p1 apres affectation : " << p1 << endl;
 }
-//
-// /***********************************************************************************************/
-// // A FAIRE : la classe abstraite Actor qui hérite de Person et qui possède un id (int)
-// //           et les deux méthodes virtuelles pures tuple() et toString()
-// //           la classe Client qui herite de Actor, contenant en plus un numero de gsm (string)
-// void Essai2()
-// {
-//   cout << "----- 2.1 Test du constructeur par defaut ----------------------------------" << endl;
-//   Client c1;
-//   cout << "--> Voici c1 : " << c1 << endl;
-//   cout << endl;
-//
-//   cout << "----- 2.2 Test des setters -------------------------------------------------" << endl;
-//   c1.setLastName("Lagalere");
-//   c1.setFirstName("Pierre");
-//   c1.setId(17);
-//   c1.setGsm("0498/15.23.69");
-//   cout << "--> Voici c1 (apres les setters) : " << c1 << endl;
-//   cout << endl;
-//   
-//   cout << "----- 2.3 Test des getters -------------------------------------------------" << endl;
-//   cout << "Nom    : " << c1.getLastName() << endl;
-//   cout << "Prenom : " << c1.getFirstName() << endl;
-//   cout << "Id     : " << c1.getId() << endl;
-//   cout << "GSM    : " << c1.getGsm() << endl;
-//   cout << endl;
-//
-//   cout << "----- 2.4 Test du constructeur d'initialisation ----------------------------" << endl;
-//   Client c2("Issier","Pol",41,"0485/12.12.23");
-//   cout << "--> Voici c2 : " << c2 << endl; 
-//   cout << endl;
-//
-//   cout << "----- 2.5 Test des methodes tuple() et toString()  -------------------------" << endl;
-//   cout << "--> Pour c2 : " << endl;
-//   cout << "toString() : --" << c2.toString() << "--" << endl;
-//   cout << "tuple()    : --" << c2.tuple() << "--" << endl; 
-//   cout << endl;
-//
-//   cout << "----- 2.6 Allocation dynamique de Client avec pointeur de type Client + test du constructeur de copie ------" << endl;
-//   cout << "--> Copie de c2..." << endl;
-//   Client *p1 = new Client(c2); // Vive le constructeur de copie !
-//   cout << "--> Voici la copie de c2 : " << *p1 << endl;
-//   cout << "--> Destruction de la copie..." << endl;
-//   delete p1;
-//   cout << "--> Revoici c2 : " << c2 << endl;
-//   cout << endl;
-//
-//   cout << "----- 2.7 Test de l'operateur d'affectation --------------------------------" << endl;
-//   Client c3;
-//   cout << "--> Execution du code c3 = c2; :" << endl;
-//   c3 = c2;
-//   cout << "--> c3 = " << c3 << endl;
-// }
-//
+
+/***********************************************************************************************/
+// A FAIRE : la classe abstraite Actor qui hérite de Person et qui possède un id (int)
+//           et les deux méthodes virtuelles pures tuple() et toString()
+//           la classe Client qui herite de Actor, contenant en plus un numero de gsm (string)
+void Essai2()
+{
+  cout << "----- 2.1 Test du constructeur par defaut ----------------------------------" << endl;
+  Client c1;
+  cout << "--> Voici c1 : " << c1 << endl;
+  cout << endl;
+
+  cout << "----- 2.2 Test des setters -------------------------------------------------" << endl;
+  c1.setLastName("Lagalere");
+  c1.setFirstName("Pierre");
+  c1.setId(17);
+  c1.setGsm("0498/15.23.69");
+  cout << "--> Voici c1 (apres les setters) : " << c1 << endl;
+  cout << endl;
+  
+  cout << "----- 2.3 Test des getters -------------------------------------------------" << endl;
+  cout << "Nom    : " << c1.getLastName() << endl;
+  cout << "Prenom : " << c1.getFirstName() << endl;
+  cout << "Id     : " << c1.getId() << endl;
+  cout << "GSM    : " << c1.getGsm() << endl;
+  cout << endl;
+
+  cout << "----- 2.4 Test du constructeur d'initialisation ----------------------------" << endl;
+  Client c2("Issier","Pol",41,"0485/12.12.23");
+  cout << "--> Voici c2 : " << c2 << endl; 
+  cout << endl;
+
+  cout << "----- 2.5 Test des methodes tuple() et toString()  -------------------------" << endl;
+  cout << "--> Pour c2 : " << endl;
+  cout << "toString() : --" << c2.toString() << "--" << endl;
+  cout << "tuple()    : --" << c2.tuple() << "--" << endl; 
+  cout << endl;
+
+  cout << "----- 2.6 Allocation dynamique de Client avec pointeur de type Client + test du constructeur de copie ------" << endl;
+  cout << "--> Copie de c2..." << endl;
+  Client *p1 = new Client(c2); // Vive le constructeur de copie !
+  cout << "--> Voici la copie de c2 : " << *p1 << endl;
+  cout << "--> Destruction de la copie..." << endl;
+  delete p1;
+  cout << "--> Revoici c2 : " << c2 << endl;
+  cout << endl;
+
+  cout << "----- 2.7 Test de l'operateur d'affectation --------------------------------" << endl;
+  Client c3;
+  cout << "--> Execution du code c3 = c2; :" << endl;
+  c3 = c2;
+  cout << "--> c3 = " << c3 << endl;
+}
+
 // /***********************************************************************************************/
 // // A FAIRE : la classe Employee qui herite de Actor
 // //           contenant en plus une fonction (string), un login (string) et un mot de passe (string)

@@ -7,7 +7,7 @@ Person::Person(){
   this->setLastName("Doe");
 }
 
-Person::Person(const string& fn, const string& ln){
+Person::Person(const string& ln, const string& fn){
   this->setLastName(ln);
   this->setFirstName(fn);
 }
@@ -15,6 +15,10 @@ Person::Person(const string& fn, const string& ln){
 Person::Person(const Person& other){
   this->setFirstName(other.getFirstName());
   this->setLastName(other.getLastName());
+}
+
+Person::~Person(){
+  std::cout<<"[Destructeur Person]"<<std::endl;
 }
 
 string Person::getLastName()const{
@@ -33,14 +37,14 @@ void Person::setFirstName(const string newFirstName){
   this->firstName = newFirstName;
 }
 
-std::ostream& operator<<(std::ostream os, const Person& p){
+std::ostream& operator<<(std::ostream& os, const Person& p){
   os<<"Person--------------------"<<std::endl;
   os<<"Prenom: "<<p.getFirstName()<<std::endl<<"Nom de Famille: "<<p.getLastName()<<std::endl;
   os<<"--------------------Person";
   return os;
 }
 
-std::istream& operator>>(std::istream is, Person& p){
+std::istream& operator>>(std::istream& is, Person& p){
   string fn,ln;
   std::cout<<"Entrer le prénom: "<<std::endl;
   std::getline(is, fn);

@@ -1,6 +1,5 @@
 #include "Option.h"
 #include <iostream>
-#include <iterator>
 #include <string>
 
 namespace carconfig {

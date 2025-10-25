@@ -2,6 +2,21 @@
   {
     "arguments": [
       "/usr/bin/g++",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-c",
+      "-o",
+      "Model.o",
+      "./Classe/Model.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Classe/Model.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Model.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
       "-c",
       "-I./Include/",
       "-Wall",
@@ -14,6 +29,51 @@
     "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
     "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test1.cpp",
     "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Test1"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-c",
+      "-o",
+      "Car.o",
+      "./Classe/Car.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Classe/Car.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Car.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-c",
+      "-o",
+      "Option.o",
+      "./Classe/Option.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Classe/Option.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Option.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-I./Include/",
+      "-Wall",
+      "-DDEBUG",
+      "-c",
+      "-o",
+      "Person.o",
+      "./Classe/Person.cpp"
+    ],
+    "directory": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026",
+    "file": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Classe/Person.cpp",
+    "output": "/home/student/Documents/cp20252026/LaboCpp2025_Enonce/cpp2025-2026/Person.o"
   },
   {
     "arguments": [

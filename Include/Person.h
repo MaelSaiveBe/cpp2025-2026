@@ -5,7 +5,6 @@
 #include <istream>
 #include <ostream>
 #include <string>
-#include <strstream>
 
 using std::string;
 
@@ -19,7 +18,7 @@ public:
 
   // --- Constructeurs ---
   Person();
-  Person(const string& fn, const string& ln);
+  Person(const string& ln, const string& fn);
   Person(const Person& other);
 
   // --- Destructeurs ---
@@ -41,4 +40,4 @@ public:
   Person& operator=(const Person& p);
 
 };
-#endif PERSON_H
+#endif 

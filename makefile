@@ -21,7 +21,7 @@ Test3: Test3.cpp Model.o Car.o Option.o Person.o
 	$(CO) Test3.cpp -o Test3 Model.o Car.o Option.o Person.o
 
 Test4: Test4.cpp Model.o Car.o Option.o Person.o
-	$(CO) Test4.cpp -o Test4 Model.o Car.o Option.o Person.o
+	$(CO) Test4.cpp -o Test4 Model.o Car.o Option.o Person.o Actor.o
 
 # === Compilation des objets ===
 Model.o: $(Classe)Model.cpp
@@ -35,6 +35,9 @@ Option.o: $(Classe)Option.cpp
 
 Person.o: $(Classe)Person.cpp
 	$(CO) -c $(Classe)Person.cpp -o Person.o
+
+Actor.o:	$(Classe)Actor.cpp
+	$(CO) -c $(Classe)Actor.cpp -o Actor.cpp
 
 # === Nettoyage des fichiers compilés ===
 clean:
