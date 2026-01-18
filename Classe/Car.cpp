@@ -64,12 +64,14 @@ void Car::setName(const std::string &newName) { name = newName; }
 void Car::setModel(const Model &newModel) { model = newModel; }
 
 void Car::addOption(const Option &option) {
+
   for (int i = 0; i < 5; i++) {
+    if(options[i]->getCode()== option.getCode())throw OptionException("Impossible d'ajouter deux fois la meme option");
     if (options[i] == nullptr) {
       options[i] = new Option(option);
-      break;
+      return;
     }
-  }
+  }throw OptionException("Impossible d'ajouter une option(voiture deja a 5 option)");
 }
 
 void Car::removeOption(const std::string &target) {
@@ -79,10 +81,10 @@ void Car::removeOption(const std::string &target) {
       if (options[i]->getCode() == target) {
         delete options[i];
         options[i] = nullptr;
-        break;
+        return;
       }
     }
-  }
+  }throw OptionException("Impossible de supprimer une option qui ne fait pas partie de la config");
 }
 
 Car &Car::operator=(const Car &other) {

@@ -11,9 +11,10 @@ Option::Option() {
 }
 
 Option::Option(const string &c, const string &l, float p) {
-  code = c;
-  label = l;
-  price = p;
+
+  setCode(c);
+  setLabel(l);
+  setPrice(p);
 }
 
 Option::Option(const Option &other) {
@@ -33,11 +34,20 @@ string Option::getLabel() const { return label; }
 float Option::getPrice() const { return price; }
 
 //---------------Setters--------------------------------
-void Option::setCode(const string &c) { code = c; }
+void Option::setCode(const string &c) {
 
-void Option::setLabel(const string &l) { label = l; }
+  if(c.length()!=4)throw OptionException("Le code doit comporter 4 caractères");
+  code = c;
+}
 
-void Option::setPrice(float p) { price = p; }
+void Option::setLabel(const string &l) {
+  if(l.length()==0)throw OptionException("L'intitulé ne peut être vide");
+  label = l;
+}
+
+void Option::setPrice(float p) { 
+  if(p<0)throw OptionException("Le prix doit être positif.");
+  price = p; }
 
 std::ostream &operator<<(std::ostream &os, const Option &op) {
   os << "[Code: " << op.code << ", Label: " << op.label

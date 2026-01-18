@@ -3,7 +3,7 @@ Include = ./Include/
 
 CO = g++ -I$(Include) -Wall -DDEBUG
 
-all: Test1 Test2a Test2b Test2c Test3 Test4
+all: Test1 Test2a Test2b Test2c Test3 Test4 Test5
 
 Test1: Test1.cpp Model.o
 	$(CO) Test1.cpp -o Test1 Model.o
@@ -22,6 +22,9 @@ Test3: Test3.cpp Model.o Car.o Option.o Person.o
 
 Test4: Test4.cpp Model.o Car.o Option.o Person.o Actor.o Client.o Employee.o
 	$(CO) Test4.cpp -o Test4 Model.o Car.o Option.o Person.o Actor.o Client.o Employee.o
+
+Test5: Test5.cpp Model.o Car.o Option.o Person.o Actor.o Client.o Employee.o
+	$(CO) Test5.cpp -o Test5 Model.o Car.o Option.o Person.o Actor.o Client.o Employee.o
 
 # === Compilation des objets ===
 Model.o: $(Classe)Model.cpp
