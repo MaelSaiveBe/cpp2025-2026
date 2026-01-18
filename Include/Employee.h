@@ -5,6 +5,7 @@
 #include <string>
 #include <tuple>
 #include <iostream>
+#include "Exception.h"
 
 class Employee : public Actor {
 protected:

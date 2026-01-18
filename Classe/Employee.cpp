@@ -27,6 +27,7 @@ Employee::Employee(const std::string& ln,const std::string& fn, int id,const std
 Employee::Employee(const Employee& other)
     : Actor(other){
     if (other.password != nullptr) {
+        if(other.password->length()< 6)throw(PasswordException("Erreur Mot de passe invalide", PasswordException::INVALID_LENGTH));
         password = new std::string(*other.password);
     }else password= nullptr;
 }
@@ -58,6 +59,13 @@ Employee& Employee::operator=(const Employee& other) {
 // --- Gestion du mot de passe ---
 
 void Employee::setPassword(const std::string& mdp) {
+    if(mdp.length()<6)throw PasswordException("Erreur Mot de Passe invalide: ", PasswordException::INVALID_LENGTH);
+    bool hasAlpha,hasDigit;
+    for (char c : mdp) {
+        if (std::isalpha(c)) hasAlpha = true;
+        if (std::isdigit(c)) hasDigit = true;
+    }if(!hasAlpha)throw PasswordException("Erreur Mot de Passe invalide: ", PasswordException::ALPHA_MISSING);
+    if(!hasDigit)throw PasswordException("Erreur Mot de Passe invalide: ", PasswordException::DIGIT_MISSING);
     delete password;
     password = new std::string(mdp);
 }
@@ -69,7 +77,8 @@ void Employee::resetPassword() {
 
 // --- Getters ---
 std::string Employee::getPassword() const{
-    return *this->password;
+    if(this->password == nullptr)throw(PasswordException("Erreur Mot de Passe Invalide", PasswordException::NO_PASSWORD));
+    return *(this->password);
 }
 std::string Employee::getLogin() const {
     return login;

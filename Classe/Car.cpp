@@ -66,7 +66,7 @@ void Car::setModel(const Model &newModel) { model = newModel; }
 void Car::addOption(const Option &option) {
 
   for (int i = 0; i < 5; i++) {
-    if(options[i]->getCode()== option.getCode())throw OptionException("Impossible d'ajouter deux fois la meme option");
+    if(options[i]!= nullptr && options[i]->getCode()== option.getCode())throw OptionException("Impossible d'ajouter deux fois la meme option");
     if (options[i] == nullptr) {
       options[i] = new Option(option);
       return;

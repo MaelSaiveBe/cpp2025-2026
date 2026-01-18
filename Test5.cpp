@@ -35,9 +35,9 @@ int main()
     switch(choix)
     {
       case 1 : Essai1(); break;
-      /*case 2 : Essai2(); break;
+      case 2 : Essai2(); break;
       case 3 : Essai3(); break;
-      case 4 : Essai4(); break;*/
+      case 4 : Essai4(); break;
       default : fini = true ; break;
     }
   }
@@ -135,108 +135,166 @@ void Essai1()
 }
 
 /**********************************************************************************************/
-// void Essai2()
-// {
-//   cout << "----- 2. Test des methodes de Car susceptibles de lancer une OptionException --------" << endl;
-//   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
-//   // en particulier : afficher le message de l'exception lancee
+void Essai2()
+{
+  cout << "----- 2. Test des methodes de Car susceptibles de lancer une OptionException --------" << endl;
+  // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
+  // en particulier : afficher le message de l'exception lancee
 
-//   // ...
-//   {
-//     cout << "----- 2.1 Creation d'une voiture sans options -----------------------------------" << endl;
-//     Car c1("Projet_208_MrDugenou",Model("208 Access 1.0",68,Engine::Petrol,12500.0f));
-//     cout << c1 << endl;
+  // ...
+  {
+    cout << "----- 2.1 Creation d'une voiture sans options -----------------------------------" << endl;
+    Car c1("Projet_208_MrDugenou",Model("208 Access 1.0",68,Engine::Petrol,12500.0f));
+    cout << c1 << endl;
 
-//     cout << "----- 2.2 Ajout d'options -------------------------------------------------------" << endl;
-//     Option opts[6];
-//     opts[0] = Option("0MM0","Peinture metallisee",450.0f);
-//     opts[1] = Option("ZH75","Jante alliage leger 15 pouces",450.0f);
-//     opts[2] = Option("UB01","Detecteur obstacles arriere",250.0f);
-//     opts[3] = Option("VH02","Volant croute de cuir noir",150.0f);
-//     opts[4] = Option("TC07","Toit ouvrant electrique vitre",800.0f);
-//     opts[5] = Option("WLQU","Systeme de navigation Europe",490.0f);
-//     cout << "Options disponibles :" << endl;
-//     cout << "0) FIN ajout options" << endl;
-//     for (int i=0 ; i<6 ; i++) cout << (i+1) << ") " << opts[i] << endl;
-//     int ch;
-//     do
-//     {
-//       cout << "Choix : ";
-//       cin >> ch;
-//       cin.ignore();
-//       if (ch>=1 && ch<=6) c1.addOption(opts[ch-1]);  // !!!
-//     } while (ch != 0);
-//     cout << endl;
+    cout << "----- 2.2 Ajout d'options -------------------------------------------------------" << endl;
+    Option opts[6];
+    opts[0] = Option("0MM0","Peinture metallisee",450.0f);
+    opts[1] = Option("ZH75","Jante alliage leger 15 pouces",450.0f);
+    opts[2] = Option("UB01","Detecteur obstacles arriere",250.0f);
+    opts[3] = Option("VH02","Volant croute de cuir noir",150.0f);
+    opts[4] = Option("TC07","Toit ouvrant electrique vitre",800.0f);
+    opts[5] = Option("WLQU","Systeme de navigation Europe",490.0f);
+    cout << "Options disponibles :" << endl;
+    cout << "0) FIN ajout options" << endl;
+    for (int i=0 ; i<6 ; i++) cout << (i+1) << ") " << opts[i] << endl;
+    int ch;
+    do
+    {
+      cout << "Choix : ";
+      cin >> ch;
+      cin.ignore();
+      try{
+      if (ch>=1 && ch<=6) c1.addOption(opts[ch-1]);  // !!!
+    }catch(const OptionException& e){std::cout<< "Erreur de l'ajout d'option: "<<e.getMessage();}
+    } while (ch != 0);
+    cout << endl;
 
-//     cout << "----- 2.3 La voiture apres l'ajout des options ----------------------------------" << endl;
-//     cout << c1 << endl;
+    cout << "----- 2.3 La voiture apres l'ajout des options ----------------------------------" << endl;
+    cout << c1 << endl;
 
-//     cout << "----- 2.4 On retire une option --------------------------------------------------" << endl;
-//     string codeOption;
-//     cout << "Code : ";
-//     getline(cin,codeOption);
-//     c1.removeOption(codeOption);  // !!!
+    cout << "----- 2.4 On retire une option --------------------------------------------------" << endl;
+    string codeOption;
+    cout << "Code : ";
+    getline(cin,codeOption);
+    try{
+    c1.removeOption(codeOption);  // !!!
+    }catch(const OptionException& e){std::cout<< "Erreur de suppression d'option: "<<e.getMessage();}
 
-//     cout << "----- 2.4 La voiture apres le retrait de l'option -------------------------------" << endl;
-//     cout << c1 << endl;
-//   }
-//   // ...
+    cout << "----- 2.4 La voiture apres le retrait de l'option -------------------------------" << endl;
+    cout << c1 << endl;
+  }
+  // ...
   
-//   cout << endl;
-// }
+  cout << endl;
+}
 
 // /*********************************************************************************************
-// void Essai3()
-// {
-//   cout << "----- 3. Test des methodes de Employee susceptibles de lancer une PasswordException --------" << endl;
-//   // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
-//   // en particulier : Tester le code de l'erreur et affiche la cause exacte de l'erreur.
+void Essai3()
+{
+  cout << "----- 3. Test des methodes de Employee susceptibles de lancer une PasswordException --------" << endl;
+  // A COMPLETER : Traitez l'exception susceptible d'etre lancee par le bloc de code suivant (try...catch)
+  // en particulier : Tester le code de l'erreur et affiche la cause exacte de l'erreur.
 
-//   // ...
-//   {
-//     Employee e1("Dupont","Michel",2,"dupomich",Employee::ADMINISTRATIVE);
-//     cout << e1 << endl << endl;
-//     cout << "Voulez-vous encoder un mot de passe pour cet Employee (o/n) ? ";
-//     char ch;
-//     cin >> ch;
-//     cin.ignore();
-//     if (ch == 'o')
-//     {
-//       cout << "Encodez son mot de passe : ";
-//       string mdp;
-//       getline(cin,mdp);
-//       e1.setPassword(mdp);  // !!!
-//     }
-//     cout << "Affichage du mot de passe :" << endl;
-//     cout << "Mot de passe = " << e1.getPassword() << endl;  // !!!
-//   }
-//   // ...
+  // ...
+  {
+    Employee e1("Dupont","Michel",2,"dupomich",Employee::ADMINISTRATIVE);
+    cout << e1 << endl << endl;
+    cout << "Voulez-vous encoder un mot de passe pour cet Employee (o/n) ? ";
+    char ch;
+    cin >> ch;
+    cin.ignore();
+    if (ch == 'o')
+    {
+      cout << "Encodez son mot de passe : ";
+      string mdp;
+      getline(cin,mdp);
+      try{
+        e1.setPassword(mdp);  // !!!
+      }catch(const PasswordException& e){std::cout<<"erreur affectation mot de passe: " << e.getMessage();
+      switch(e.getCode()){
+        case PasswordException::INVALID_LENGTH:
+          cout<<"Mot de Passe trop court(min 6 caractères)"<<std::endl;
+          break;
+        case PasswordException::NO_PASSWORD:
+          cout<<"Mot de Passe pas initialisé"<<std::endl;
+          break;
+        case PasswordException::ALPHA_MISSING:
+          cout<<"Le Mot de Passe doit contenir ou moins une lettre"<<std::endl;
+          break;
+        case PasswordException::DIGIT_MISSING:
+          cout<<"Le Mot de Passe doit contenir ou moins un chiffre"<<std::endl;
+          break;
+      }
+    }
+    }
+    cout << "Affichage du mot de passe :" << endl;
+    try{
+    cout << "Mot de passe = " << e1.getPassword() << endl;  // !!!
+  }catch(const PasswordException& e){std::cout<<"Erreur mot de passe: ";
+    switch(e.getCode()){
+        case PasswordException::INVALID_LENGTH:
+          cout<<"Mot de Passe trop court(min 6 caractères)"<<std::endl;
+          break;
+        case PasswordException::NO_PASSWORD:
+          cout<<"Mot de Passe pas initialisé"<<std::endl;
+          break;
+        case PasswordException::ALPHA_MISSING:
+          cout<<"Le Mot de Passe doit contenir ou moins une lettre"<<std::endl;
+          break;
+        case PasswordException::DIGIT_MISSING:
+          cout<<"Le Mot de Passe doit contenir ou moins un chiffre"<<std::endl;
+          break;
+      }
+}
+  }
+  // ...
   
-//   cout << endl;
-// }
+  cout << endl;
+}
 
 // /**********************************************************************************************/
-// void Essai4()
-// {
-//   cout << "----- 4. Gestion de plusieurs exceptions simultanement ---" << endl;
-//   // A COMPLETER : Traitez TOUTES les exceptions susceptible d'etre lancee par le bloc de code suivant (try...catch)
+void Essai4()
+{
+  cout << "----- 4. Gestion de plusieurs exceptions simultanement ---" << endl;
+  // A COMPLETER : Traitez TOUTES les exceptions susceptible d'etre lancee par le bloc de code suivant (try...catch)
 
-//   // ...
-//   {
-//     Option o;
-//     cout << "Encodez une option : " << endl;
-//     cin >> o;
-//     cout << "Voici l'option encodee : " << o << endl << endl;
-//     Employee e1("Dupont","Michel",2,"dupomich",Employee::ADMINISTRATIVE);
-//     cout << e1 << endl;
-//     cout << "Encodez son mot de passe : ";
-//     string mdp;
-//     getline(cin,mdp);
-//     e1.setPassword(mdp);
-//     cout << "Affichage du mot de passe :" << endl;
-//     cout << "Mot de passe = " << e1.getPassword() << endl;
-//   }
-//   // ...
+  // ...
+  {
+    try{
+    Option o;
+    cout << "Encodez une option : " << endl;
+    cin >> o;
+    cout << "Voici l'option encodee : " << o << endl << endl;
+    Employee e1("Dupont","Michel",2,"dupomich",Employee::ADMINISTRATIVE);
+    cout << e1 << endl;
+    cout << "Encodez son mot de passe : ";
+    string mdp;
+    getline(cin,mdp);
+    e1.setPassword(mdp);
+    cout << "Affichage du mot de passe :" << endl;
+    cout << "Mot de passe = " << e1.getPassword() << endl;
+  }catch(const OptionException& e){std::cout<<"Erreur Option: "<<e.getMessage()<<std::endl;}
+
+  catch(const PasswordException& e){
+    std::cout<<"Erreur mot de passe: ";
+    switch(e.getCode()){
+        case PasswordException::INVALID_LENGTH:
+          cout<<"Mot de Passe trop court(min 6 caractères)"<<std::endl;
+          break;
+        case PasswordException::NO_PASSWORD:
+          cout<<"Mot de Passe pas initialisé"<<std::endl;
+          break;
+        case PasswordException::ALPHA_MISSING:
+          cout<<"Le Mot de Passe doit contenir ou moins une lettre"<<std::endl;
+          break;
+        case PasswordException::DIGIT_MISSING:
+          cout<<"Le Mot de Passe doit contenir ou moins un chiffre"<<std::endl;
+          break;
+      }
+  }
+  }
+  // ...
   
-//   cout << endl;
-// } */;
+  cout << endl;
+}
