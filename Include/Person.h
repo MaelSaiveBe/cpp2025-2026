@@ -22,7 +22,7 @@ public:
   Person(const Person& other);
 
   // --- Destructeurs ---
-  ~Person();
+  virtual ~Person();
 
   // --- Getters ---
 

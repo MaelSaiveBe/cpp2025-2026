@@ -6,17 +6,21 @@
 
 class Client: public Actor{
 private:
-  std::string& gsm;
+  std::string gsm;
 public:
 
- Client();
-  Client(const std::string& ln, const string& fn, int id, const string& gsm);
- Client(const Client& other);
+  Client();
+  Client(const std::string& ln, const std::string& fn, int id, const std::string& gsm);
+  Client(const Client& other);
+  virtual ~Client();
  
- string getGsm();
+  Client& operator=(const Client& other);
+  std::string getGsm()const;
 
- void setGsm();
+  void setGsm(const std::string& gsm);
   
+  std::string tuple() const override;
+  std::string toString() const override;
    
 };
 

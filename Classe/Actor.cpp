@@ -19,3 +19,9 @@ int Actor::getId()const{
 void Actor::setId(int newId){
   this->id= newId;
 }
+
+Actor& Actor::operator=(const Actor& other) {
+  Person::operator=(other);
+  id = other.id;          
+  return *this;
+}

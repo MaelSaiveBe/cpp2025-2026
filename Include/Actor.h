@@ -21,8 +21,11 @@ public:
     void setId(int newId);
 
     // --- Méthodes virtuelles ---
-    virtual std::tuple<int, std::string, std::string, int> tuple() const = 0; 
-    virtual std::string toString() const= 0; 
+    virtual std::string tuple() const = 0; 
+    virtual std::string toString() const= 0;
+
+    //--- Operator ---
+    Actor& operator=(const Actor& other); 
 };
 
 
