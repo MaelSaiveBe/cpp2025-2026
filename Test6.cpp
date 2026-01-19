@@ -105,7 +105,7 @@ void Essai2()  // Attention : utilisez les flux texte (<< et >>) !!!!
   cout << "Après sérialisation : " << m2.toString() << endl;
 }
 
-/*********************************************************************************************/
+// /*********************************************************************************************/
 void Essai3()  // Attention : utilisez les flux texte (<< et >>) !!!!
 {
   cout << "----- 3. Sérialisation/Désérialisation d'un objet de la classe Car ------" << endl;
@@ -134,7 +134,7 @@ void Essai3()  // Attention : utilisez les flux texte (<< et >>) !!!!
   cout << endl;
 }
 
-/*********************************************************************************************/
+// /*********************************************************************************************/
 void Essai4()  // Attention : utilisez les flux texte (<< et >>) !!!!
 {
   cout << "----- 4. Sérialisation/Désérialisation d'un objet de la classe Client ------" << endl;

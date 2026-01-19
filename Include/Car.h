@@ -43,9 +43,11 @@ public:
   bool operator<(const Car &) const;
   bool operator>(const Car &) const;
   bool operator==(const Car &) const;
-  friend std::ostream &operator<<(std::ostream &os, const Car &car);
+  friend std::ostream& operator<<(std::ostream& os, const Car& c);
+  friend std::ostream& operator>>(std::istream& is, Car& c);
 
-  Option* operator[](int index);
+  Option*& operator[](int index);
+  Option* operator[](int index)const;
 
   //----Utils--------
   void display() const;

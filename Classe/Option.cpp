@@ -49,10 +49,24 @@ void Option::setPrice(float p) {
   if(p<0)throw OptionException("Le prix doit être positif.");
   price = p; }
 
-std::ostream &operator<<(std::ostream &os, const Option &op) {
-  os << "[Code: " << op.code << ", Label: " << op.label
-     << ", Prix: " << op.price << "€]";
-  return os;
+std::ostream& operator<<(std::ostream& os, const Option& o)
+{
+    os << "<Option>" << std::endl;
+    os << "<code>" << std::endl;
+    os << o.getCode() << std::endl;
+    os << "</code>" << std::endl;
+
+    os << "<label>" << std::endl;
+    os << o.getLabel() << std::endl;
+    os << "</label>" << std::endl;
+
+    os << "<price>" << std::endl;
+    os << o.getPrice() << std::endl;
+    os << "</price>" << std::endl;
+
+    os << "</Option>" << std::endl;
+
+    return os;
 }
 
 Option& Option::operator--(){
@@ -66,27 +80,47 @@ Option Option::operator--(int){
   return temp;
 }
 
-std::istream &operator>>(std::istream &is, Option &op) {
-  std::string codetemp, labelTemp;
-  float priceTemp;
+std::istream& operator>>(std::istream& is, Option& o)
+{
+    std::string line;
+    std::string code, label, priceStr;
+    // <Option>
+    std::getline(is, line);
 
-  std::cout << "entrer le code: " << std::endl;
-  is >> codetemp;
-  std::cin.ignore();
-  std::cout << "entrer le label: " << std::endl;
-  std::getline(is, labelTemp);
-  std::cout << "entrer le prix: " << std::endl;
-  is >> priceTemp;
-  std::cin.ignore();
-  op.setCode(codetemp);
-  op.setPrice(priceTemp);
-  op.setLabel(labelTemp);
+    // <code>
+    std::getline(is, line); 
+    std::getline(is, code);
+    std::getline(is, line);
+    // <label>
+    std::getline(is, line); 
+    std::getline(is, label);
+    std::getline(is, line); 
+    // <price>
+    std::getline(is, line); 
+    std::getline(is, priceStr);
+    std::getline(is, line); 
+    // </Option>
+    std::getline(is, line); 
 
-  return is;
+    float price = std::stof(priceStr);
+
+    o.setCode(code);
+    o.setLabel(label);
+    o.setPrice(price);
+
+    return is;
 }
+
 void Option::display() const {
   std::cout << "Option(code: " << code << ", label: " << label
             << ", Prix: " << price << std::endl;
+}
+
+std::string Option::toString() const
+{
+    return "[Code: " + code +
+           ", Label: " + label +
+           ", Prix: " + std::to_string(price) + "€]";
 }
 
 } // namespace carconfig

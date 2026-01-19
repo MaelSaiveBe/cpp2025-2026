@@ -44,7 +44,7 @@ Car::~Car() {
   }
 }
 
-// Getters
+// Getters ----------------------------------------------
 std::string Car::getName() const { return name; }
 
 const Model &Car::getModel() const { return this->model; }
@@ -58,11 +58,13 @@ const float Car::getPrice() const {
   return sum + getModel().getBasePrice();
 }
 
-// Setters
+// Setters -------------------------------------------------------
 void Car::setName(const std::string &newName) { name = newName; }
 
 void Car::setModel(const Model &newModel) { model = newModel; }
 
+
+//Manage Options -------------------------------------------------
 void Car::addOption(const Option &option) {
 
   for (int i = 0; i < 5; i++) {
@@ -87,6 +89,7 @@ void Car::removeOption(const std::string &target) {
   }throw OptionException("Impossible de supprimer une option qui ne fait pas partie de la config");
 }
 
+// Operators -------------------------------------------------------
 Car &Car::operator=(const Car &other) {
   if (this != &other) {
     name = other.name;
@@ -130,18 +133,90 @@ bool Car::operator==(const Car& other)const{
   return this->getPrice()==other.getPrice();
 }
 
-std::ostream& operator<<(std::ostream& os, const Car& car){
-  os<<"Car------------------------------------------"<<std::endl;
-  os<<"Nom: "<<car.getName()<<std::endl<<car.getModel()<<std::endl;
-  os<<car.optionToString();
-  os<<"------------------------------------------Car"<<std::endl;
-  return os;
+// std::ostream& operator<<(std::ostream& os, const Car& car){
+//   os<<"Car------------------------------------------"<<std::endl;
+//   os<<"Nom: "<<car.getName()<<std::endl<<car.getModel()<<std::endl;
+//   os<<car.optionToString();
+//   os<<"------------------------------------------Car"<<std::endl;
+//   return os;
+// }
+
+std::ostream& operator<<(std::ostream& os, const Car& c) {
+    os << "<Car>" << std::endl;
+
+    // Nom de la voiture
+    os << "<name>" << std::endl;
+    os << c.getName() << std::endl;
+    os << "</name>" << std::endl;
+
+    // Model
+    os << "<model>" << std::endl;
+    os << c.getModel();
+    os << "</model>" << std::endl;
+
+    // Options
+    os << "<options>" << std::endl;
+    for (int i = 0; i < 5; ++i) {
+        if (c[i] != nullptr) {
+            os << *c[i];  
+        }
+    }
+    os << "</options>" << std::endl;
+
+    os << "</Car>" << std::endl;
+    return os;
+}
+
+std::istream& operator>>(std::istream& is, Car& c) {
+    std::string ligne;
+
+    // <Car>
+    std::getline(is, ligne);
+    // <name>
+    std::getline(is, ligne); 
+    std::getline(is, ligne);
+    c.setName(ligne);
+    std::getline(is, ligne);
+
+    // <model>
+    std::getline(is, ligne); 
+    Model m;
+    is >> m;
+    c.setModel(m);
+    std::getline(is, ligne);
+
+    // <options>
+    std::getline(is, ligne);
+    std::streampos posFirstOpt = is.tellg(); 
+    std::getline(is,ligne);
+    while(ligne != "</options>"){
+      is.seekg(posFirstOpt);
+      Option op;
+      is>>op;
+      for (int i = 0; i < 5; ++i) {
+        if (c[i] == nullptr) {
+            c[i] = new Option(op);
+            break;
+        }
+      }
+      posFirstOpt = is.tellg(); 
+      std::getline(is,ligne);
+    }
+
+    // </car>
+    std::getline(is, ligne);
+    return is;
 }
 
 
-Option* Car::operator[](int index){
+Option*& Car::operator[](int index){
   return options[index];
 }
+
+Option* Car::operator[](int index) const { 
+  return options[index]; 
+}
+
 
 
 string Car::optionToString() const {

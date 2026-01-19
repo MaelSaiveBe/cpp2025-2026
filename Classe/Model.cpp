@@ -95,37 +95,141 @@ Model &Model::operator=(const Model &other) {
   return *this;
 }
 
-std::ostream &operator<<(std::ostream &os, const Model &m) {
-  os << "Model----------------------" << std::endl
-     << "Nom: " << m.getName() << std::endl
-     << "Puissance: " << m.getPower() << " Type moteur: " << m.getEngine()
-     << std::endl
-     << "Prix de Base: " << m.getBasePrice()<<std::endl;
-  os << "----------------------Model";
-  return os;
+// std::ostream &operator<<(std::ostream &os, const Model &m) {
+//   os << "Model----------------------" << std::endl
+//      << "Nom: " << m.getName() << std::endl
+//      << "Puissance: " << m.getPower() << " Type moteur: " << m.getEngine()
+//      << std::endl
+//      << "Prix de Base: " << m.getBasePrice()<<std::endl;
+//   os << "----------------------Model";
+//   return os;
+// }
+
+std::ostream& operator<<(std::ostream& os, const Model& m)
+{
+    os << "<Model>" << std::endl;
+
+    os << "<name>" << std::endl;
+    os << m.getName() << std::endl;
+    os << "</name>" << std::endl;
+
+    os << "<power>" << std::endl;
+    os << m.getPower() << std::endl;
+    os << "</power>" << std::endl;
+
+    os << "<engine>" << std::endl;
+    os << Model::engineToString(m.getEngine()) << std::endl;
+    os << "</engine>" << std::endl;
+
+    os << "<basePrice>" << std::endl;
+    os << m.getBasePrice() << std::endl;
+    os << "</basePrice>" << std::endl;
+
+    os << "</Model>" << std::endl;
+
+    return os;
 }
-std::istream &operator>>(std::istream &is, Model &m) {
-  std::string name;
-  int power;
-  int engineType;
-  float basePrice;
 
-  std::cout << "Nom du modèle : ";
-  std::getline(is, name);
-  std::cout << "Puissance : ";
-  is >> power;
+// std::istream &operator>>(std::istream &is, Model &m) {
+//   std::string name;
+//   int power;
+//   int engineType;
+//   float basePrice;
 
-  std::cout << "Type moteur (0=Essence, 1=Diesel, 2=Electrique, 3=Hybride) : ";
-  is >> engineType;
+//   std::cout << "Nom du modèle : ";
+//   std::getline(is, name);
+//   std::cout << "Puissance : ";
+//   is >> power;
 
-  std::cout << "Prix de base : ";
-  is >> basePrice;
+//   std::cout << "Type moteur (0=Essence, 1=Diesel, 2=Electrique, 3=Hybride) : ";
+//   is >> engineType;
 
-  m.setName(name.c_str());
-  m.setPower(power);
-  m.setEngine(static_cast<Engine>(engineType));
-  m.setBasePrice(basePrice);
+//   std::cout << "Prix de base : ";
+//   is >> basePrice;
 
-  return is;
+//   m.setName(name.c_str());
+//   m.setPower(power);
+//   m.setEngine(static_cast<Engine>(engineType));
+//   m.setBasePrice(basePrice);
+
+//   return is;
+// }
+std::istream& operator>>(std::istream& is, Model& m)
+{
+    std::string line;
+    std::string name, powerStr, engineStr, priceStr;
+    // <Model>
+    std::getline(is, line); 
+    // <name>
+    std::getline(is, line); 
+    std::getline(is, name);
+    std::getline(is, line); 
+    // <power>
+    std::getline(is, line); 
+    std::getline(is, powerStr);
+    std::getline(is, line); 
+    // <engine>
+    std::getline(is, line); 
+    std::getline(is, engineStr);
+    std::getline(is, line);
+    // <basePrice>
+    std::getline(is, line); 
+    std::getline(is, priceStr);
+    std::getline(is, line); 
+    // </Model>
+    std::getline(is, line); 
+
+    int power = std::stoi(powerStr);
+    float price = std::stof(priceStr);
+    Engine engine = Model::stringToEngine(engineStr);
+
+    m.setName(name.c_str());
+    m.setPower(power);
+    m.setEngine(engine);
+    m.setBasePrice(price);
+
+    return is;
+}
+
+std::string Model::toString() const
+{
+    std::string result;
+
+    result += "[";
+    result += name;
+    result += ", ";
+    result += std::to_string(power);
+    result += " ch, ";
+    result += engineToString(engine);
+    result += ", ";
+    result += std::to_string(basePrice);
+    result += " €]";
+
+    return result;
+}
+
+
+
+ std::string Model::engineToString(Engine e)
+{
+    switch (e)
+    {
+        case Engine::Petrol:   return "Essence";
+        case Engine::Diesel:   return "Diesel";
+        case Engine::Hybrid:   return "Hybride";
+        case Engine::Electric: return "Electrique";
+    }
+    return "";
+}
+
+
+ Engine Model::stringToEngine(const std::string& s)
+{
+    if (s == "Essence")    return Engine::Petrol;
+    if (s == "Diesel")     return Engine::Diesel;
+    if (s == "Hybride")    return Engine::Hybrid;
+    if (s == "Electrique") return Engine::Electric;
+
+    //throw Exception("Type de moteur invalide"); Si j'ai le temps;
 }
 }

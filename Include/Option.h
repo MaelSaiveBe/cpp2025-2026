@@ -34,13 +34,14 @@ public:
   void setPrice(float p);
 
   //---Operator overload---
-  friend std::ostream& operator<<(std::ostream& os, const Option& op); 
-  friend std::istream& operator>>(std::istream& is, Option& op);
+  friend std::ostream& operator<<(std::ostream& os, const Option& o); 
+  friend std::istream& operator>>(std::istream& is, Option& o);
   Option& operator--();
   Option operator--(int);
 
   // ---Utils-- ---
   void display() const;
+  std::string toString() const;
 };
 
 } // namespace carconfig
