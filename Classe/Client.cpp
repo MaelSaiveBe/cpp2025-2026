@@ -31,6 +31,12 @@ Client& Client::operator=(const Client& other) {
     return *this;
 }
 
+bool Client::operator<(const Client& other) const{
+    if (this->getLastName() == other.getLastName())
+        return this->getFirstName() < other.getFirstName();
+    return this->getLastName() < other.getLastName();
+}
+
 
 std::ostream& operator<<(std::ostream& os, const Client& c) {
     os << "<Client>" << std::endl;

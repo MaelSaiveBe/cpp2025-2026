@@ -3,8 +3,9 @@
 
 #include <cstdlib>
 #include <istream>
-namespace carconfig {
 enum Engine { Petrol, Diesel, Electric, Hybrid };
+namespace carconfig {
+
 
 class Model {
 

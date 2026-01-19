@@ -11,6 +11,7 @@ private:
   int id;
 
 public:
+    static int currentId;
     // --- Constructeurs / destructeur ---
     Actor(); 
     Actor(const std::string& name, const std::string& firstname, int id);

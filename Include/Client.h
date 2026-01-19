@@ -15,6 +15,7 @@ public:
   virtual ~Client();
  
   Client& operator=(const Client& other);
+  bool operator<(const Client& other)const;
   friend std::istream& operator>>(std::istream& is, Client& c);
   friend std::ostream& operator<<(std::ostream& os, const Client& c);
 

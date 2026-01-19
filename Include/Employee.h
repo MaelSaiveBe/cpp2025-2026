@@ -25,8 +25,9 @@ public:
 
 
 
-//-------------------- Opérateur d’affectation --------------------
+//-------------------- Opérateurs --------------------
     Employee& operator=(const Employee& other);
+    bool operator<(const Employee& other)const;
 
 
 

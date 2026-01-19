@@ -39,7 +39,7 @@ Employee::~Employee() {
     delete password;
 }
 
-// --- Opérateur = ---
+// --- Opérateur  ---
 
 Employee& Employee::operator=(const Employee& other) {
         Actor::operator=(other);
@@ -54,6 +54,12 @@ Employee& Employee::operator=(const Employee& other) {
             password = new std::string(*other.password);
         }
     return *this;
+}
+
+bool Employee::operator<(const Employee& other) const{
+    if (this->getLastName() == other.getLastName())
+        return this->getFirstName() < other.getFirstName();
+    return this->getLastName() < other.getLastName();
 }
 
 // --- Gestion du mot de passe ---

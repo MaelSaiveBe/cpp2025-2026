@@ -2,6 +2,8 @@
 #include "Garage.h"
 
 using namespace std;
+using carconfig::Option;
+using carconfig::Model;
 
 int main()
 {
