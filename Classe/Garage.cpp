@@ -4,6 +4,34 @@
 
 using carconfig::Model;
 using carconfig::Option;
+using carconfig::Car;
+
+
+
+Garage Garage::instance;
+carconfig::Car Garage::currentProject;
+//constructeur ----------------------
+Garage::Garage(){
+
+}
+
+
+//Methode Instance--------------------------------
+Garage& Garage::getInstance(){
+	return instance;
+}
+//Methode current project-----------------------------------
+Car& Garage::getCurrentProject(){
+	return currentProject;
+}
+
+void Garage::resetCurrentProject(){
+	for (int i = 0; i < 5; i++) {
+    delete currentProject[i];
+    currentProject[i] = nullptr;
+  }
+	currentProject = Car();
+}
 
 // Methodes Options et models ------------------------------------
 void Garage::addModel(const Model& m){

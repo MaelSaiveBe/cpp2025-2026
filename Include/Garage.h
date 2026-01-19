@@ -6,11 +6,19 @@
 #include "Employee.h"
 #include "Model.h"
 #include "Option.h"
+#include "Car.h"
 
 
 class Garage 
 { 
-  private: 
+  private:
+    Garage();
+    static Garage instance;
+    Garage(const Garage&) = delete;
+    Garage& operator=(const Garage&) = delete;
+
+    static carconfig::Car currentProject;
+
     std::set<Employee> employees;  
     std::set<Client>   clients;
 
@@ -18,8 +26,10 @@ class Garage
     std::list<carconfig::Option>  options; 
  
   public: 
-    Garage() = default; 
-    ~Garage() = default; 
+    
+    static Garage& getInstance();
+    static carconfig::Car& getCurrentProject();
+    static void resetCurrentProject(); 
  
     void   addModel(const carconfig::Model & m); 
     void   displayAllModels() const; 
