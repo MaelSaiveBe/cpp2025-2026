@@ -27,22 +27,35 @@ public:
 
 
 class PasswordException : public Exception {
-public:
-    enum Code {
-        INVALID_LENGTH, // mdp <6 caractères
-        ALPHA_MISSING,  // aucune lettre
-        DIGIT_MISSING,  // aucun chiffre
-        NO_PASSWORD
-    };
-
 private:
-    Code code;
+    int code;
 
 public:
-    PasswordException(const std::string& msg, Code c)
+
+    static const int INVALID_LENGTH = 1; //<6
+    static const int ALPHA_MISSING =2;
+    static const int DIGIT_MISSING= 3;  // aucun chiffre
+    static const int NO_PASSWORD = 4;
+    PasswordException(const std::string& msg, int c)
         : Exception(msg), code(c) {}
 
-    Code getCode() const { return code; }
+    int getCode() const { return code; }
 };
 
+
+class XmlFileSerializerException : public Exception {
+private:
+    int code;
+
+public:
+    static const int NOT_ALLOWED =1;
+    static const int FILE_NOT_FOUND =2;
+    static const int END_OF_FILE =3;
+
+    XmlFileSerializerException(const std::string& msg, int c)
+        : Exception(msg), code(c) {}
+
+    int getCode() const { return code; }
+
+};
 #endif
