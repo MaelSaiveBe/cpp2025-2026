@@ -1,5 +1,5 @@
-Classe = ./sources/
-Include = ./includes/
+Classe = ./Classe/
+Include = ./Include/
 
 CO = g++ -I$(Include) -Wall -DDEBUG
 
@@ -63,4 +63,4 @@ Garage.o:	$(Classe)Garage.cpp
 
 # === Nettoyage des fichiers compilés ===
 clean:
-	rm -f *.o Test1 Test2a Test2b Test2c Test3 Test4 Test5 Test6 Test7 Test8b
+	rm -f *.o Test1 Test2a Test2b Test2c Test3 Test4 Test5 Test6
